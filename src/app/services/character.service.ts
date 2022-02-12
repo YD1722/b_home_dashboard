@@ -6,14 +6,12 @@ import { Character } from '../character-detail/character';
 import { lastValueFrom } from 'rxjs';
 import { CommonHelper } from '../utils/common-helper';
 import { ApplicationConstants } from '../utils/application-constants';
-import { ApiCharacter } from './api-character';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CharacterService {
   characterDetails: Character[] = [];
-  parsedCharacterDetails: ApiCharacter[] = [];
 
   constructor(
     private http: HttpClient,
@@ -29,7 +27,10 @@ export class CharacterService {
 
   async getFilteredCharacters(filterParams: {}): Promise<Character[]> {
     await this.loadAllCharacters();
+    return this.filterCharacterDetails(filterParams);
+  }
 
+  public filterCharacterDetails(filterParams: {}) {
     let filteredArr = CommonHelper.filterObjectArray(
       this.characterDetails,
       filterParams
