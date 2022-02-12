@@ -6,11 +6,17 @@
   <app-filter></app-filter>
 
   <div class="results">
-    <ng-container *ngIf="characterDetailList.length > 0; else loading">
-      <div *ngFor="let character of characterDetailList">
-        <app-character-detail [character]="character"></app-character-detail>
-      </div>
-    </ng-container>
+    <h2 class="header">Results</h2>
+    <div class="body">
+      <ng-container *ngIf="characterDetailList.length > 0; else loading">
+        <div
+          class="character-detail"
+          *ngFor="let character of characterDetailList"
+        >
+          <app-character-detail [character]="character"></app-character-detail>
+        </div>
+      </ng-container>
+    </div>
   </div>
 
   <ng-template class="loading-template" #loading> Loading... </ng-template>

@@ -1,5 +1,14 @@
 .container {
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
+  padding: 5% 5%;
+  &h1 {
+    font-size: 100px;
+  }
+}
+
+.results {
+  padding-top: 100px;
+
+  .body {
+    display: flex;
+  }
 }

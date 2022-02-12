@@ -30,7 +30,7 @@ export class FilterComponent {
   }
 
   private prepareDropdownOptions() {
-    // TODO: Change this data structure to enable filtering in dropdowns
+    // TODO: Change this data structure to enable filtering in dropdowns and adding empty values
     this.namesList = this.masterDataService.nameList;
     this.hairColorList = this.masterDataService.hairColorList;
     this.genderList = this.masterDataService.genderList;
@@ -40,5 +40,10 @@ export class FilterComponent {
     // this.hairColorList.unshift('');
     // this.genderList.unshift('');
     // this.raceList.unshift('');
+  }
+
+  // TODO: Remove this after dropdown data structure change
+  clearAllFilters() {
+    this.filterGroupForm.reset();
   }
 }

@@ -5,6 +5,8 @@ import {ROLES} from './roles';
   providedIn: 'root',
 })
 export class AuthorizationHelperService {
+
+  // TODO: Implement jwt sign
   getToken() {
     return ROLES.ADMIN;
   }
