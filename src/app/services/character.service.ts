@@ -57,18 +57,18 @@ export class CharacterService {
     );
 
     const serverData: any = await lastValueFrom(characterDetails);
-    this.characterDetails = serverData.docs;
 
+    this.parseAPIData(serverData.docs);
     this.loadMasterData();
   }
 
-  parseAPIData(apiData: ApiCharacter[]) {
-    apiData.forEach((data) => {
-      if (data.gender === 'Males' || data.gender === 'male') {
-        data.gender = 'Male';
-      }
+  // TODO: Remove type any
+  parseAPIData(apiData: any[]) {
+    apiData.forEach((data: any) => {
+      const character = new Character();
+      character.parseAPIData(data);
 
-      this.parsedCharacterDetails.push(data);
+      this.characterDetails.push(character);
     });
   }
 
