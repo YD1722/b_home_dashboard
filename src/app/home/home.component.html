@@ -7,7 +7,7 @@
   <div class="results">
     <h2>Results</h2>
     <div class="body">
-      <ng-container *ngIf="characterDetailList.length > 0; else loading">
+      <ng-container *ngIf="characterDetailList.length >= 0; else loading">
         <div *ngFor="let character of characterDetailList">
           <app-character-detail [character]="character"></app-character-detail>
         </div>

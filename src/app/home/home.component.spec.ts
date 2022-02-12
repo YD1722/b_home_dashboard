@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
-import { CharacterService } from '../services/character.service';
-import { HttpClient } from '@angular/common/http';
+import {HomeComponent} from './home.component';
+import {CharacterService} from '../services/character.service';
+import {HttpClient} from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

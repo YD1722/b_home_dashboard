@@ -1,11 +1,13 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {AuthorizationHelperService} from '../utils/authorization/authorization-helper.service';
-import {MasterDataService} from './master-data.service';
-import {Character} from '../character-detail/character';
-import {lastValueFrom} from 'rxjs';
-import {CommonHelper} from '../utils/common-helper';
-import {ApplicationConstants} from '../utils/application-constants';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthorizationHelperService } from '../utils/authorization/authorization-helper.service';
+import { MasterDataService } from './master-data.service';
+import { Character } from '../character-detail/character';
+import { lastValueFrom, Observable } from 'rxjs';
+import { CommonHelper } from '../utils/common-helper';
+import { ApplicationConstants } from '../utils/application-constants';
+import { map } from 'rxjs/operators';
+import { ApiResponse } from './api-response';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +32,7 @@ export class CharacterService {
     return this.filterCharacterDetails(filterParams);
   }
 
-  public filterCharacterDetails(filterParams: {}) {
+  filterCharacterDetails(filterParams: {}) {
     let filteredArr = CommonHelper.filterObjectArray(
       this.characterDetails,
       filterParams
@@ -47,33 +49,39 @@ export class CharacterService {
     await this.loadFromServer();
   }
 
-  private async loadFromServer() {
-    const characterDetails = this.http.get(
-      `${ApplicationConstants.BASE_URL}/character`,
-      {
-        headers: new HttpHeaders({
-          authorization: this.authorizationHelperService.getToken(),
-        }),
-      }
-    );
-
-    const serverData: any = await lastValueFrom(characterDetails);
-
-    this.parseAPIData(serverData.docs);
-    this.loadMasterData();
-  }
-
-  // TODO: Remove type any
-  parseAPIData(apiData: any[]) {
-    apiData.forEach((data: any) => {
+  parseAPIData(apiData: Character[]) {
+    apiData.forEach((data: Character) => {
       const character = new Character();
-      character.parseAPIData(data);
 
+      character.parseAPIData(data);
       this.characterDetails.push(character);
     });
   }
 
   loadMasterData() {
     this.masterDataService.prepareMasterData(this.characterDetails);
+  }
+
+  private async loadFromServer() {
+    try {
+      const characters = this.getCharacters();
+      const serverData: Character[] = await lastValueFrom(characters);
+
+      this.parseAPIData(serverData);
+      this.loadMasterData();
+    } catch (e) {
+      // TODO: Implement logger
+      console.log('Error in loading data from server');
+    }
+  }
+
+  private getCharacters(): Observable<Character[]> {
+    return this.http
+      .get<ApiResponse>(`${ApplicationConstants.BASE_URL}/character`, {
+        headers: new HttpHeaders({
+          authorization: this.authorizationHelperService.getToken(),
+        }),
+      })
+      .pipe(map((response: ApiResponse) => response.docs));
   }
 }
