@@ -1,26 +1,30 @@
 <div class="filter-container">
+  <button (click)="clearAllFilters()" type="submit">Clear Filters</button>
+
   <form [formGroup]="filterGroupForm">
     <p-dropdown
+      [style]="{ width: '400px' }"
       [options]="namesList"
       placeholder="Please select a name"
       formControlName="name"
     ></p-dropdown
     ><p-dropdown
+      [style]="{ width: '400px' }"
       [options]="hairColorList"
       placeholder="Please select a hair color"
       formControlName="hair"
     ></p-dropdown
     ><p-dropdown
+      [style]="{ width: '400px' }"
       [options]="genderList"
       placeholder="Please select character gender"
       formControlName="gender"
     ></p-dropdown
     ><p-dropdown
+      [style]="{ width: '400px' }"
       [options]="raceList"
       placeholder="Please select character race"
       formControlName="race"
     ></p-dropdown>
   </form>
-
-  <button (click)="clearAllFilters()" type="submit">Clear Filters</button>
 </div>

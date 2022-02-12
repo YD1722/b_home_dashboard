@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MasterDataService } from '../services/master-data.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MasterDataService} from '../services/master-data.service';
 
 @Component({
   selector: 'app-filter',

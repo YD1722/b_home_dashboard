@@ -14,6 +14,7 @@ export class Character {
     if (this.isDefined(apiData.height)) {
       this.height = apiData.height;
     }
+
     if (this.isDefined(apiData.race)) {
       this.race = apiData.race;
     }

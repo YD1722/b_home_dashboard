@@ -1,10 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { CharacterService } from './character.service';
-import { HttpClient } from '@angular/common/http';
-import { AuthorizationHelperService } from '../utils/authorization/authorization-helper.service';
+import {CharacterService} from './character.service';
+import {HttpClient} from '@angular/common/http';
+import {AuthorizationHelperService} from '../utils/authorization/authorization-helper.service';
 
-fdescribe('CharacterService', () => {
+describe('CharacterService', () => {
   let service: CharacterService;
 
   beforeEach(() => {

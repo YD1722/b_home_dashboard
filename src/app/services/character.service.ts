@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthorizationHelperService } from '../utils/authorization/authorization-helper.service';
-import { MasterDataService } from './master-data.service';
-import { Character } from '../character-detail/character';
-import { lastValueFrom } from 'rxjs';
-import { CommonHelper } from '../utils/common-helper';
-import { ApplicationConstants } from '../utils/application-constants';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthorizationHelperService} from '../utils/authorization/authorization-helper.service';
+import {MasterDataService} from './master-data.service';
+import {Character} from '../character-detail/character';
+import {lastValueFrom} from 'rxjs';
+import {CommonHelper} from '../utils/common-helper';
+import {ApplicationConstants} from '../utils/application-constants';
 
 @Injectable({
   providedIn: 'root',

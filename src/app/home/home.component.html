@@ -1,23 +1,19 @@
 <div class="container">
-  <div class="header">
-    <h1>{{ title }}</h1>
-  </div>
+  <h1>{{ title }}</h1>
 
   <app-filter></app-filter>
 
+  <!--  TODO: Move this to a separate component-->
   <div class="results">
-    <h2 class="header">Results</h2>
+    <h2>Results</h2>
     <div class="body">
       <ng-container *ngIf="characterDetailList.length > 0; else loading">
-        <div
-          class="character-detail"
-          *ngFor="let character of characterDetailList"
-        >
+        <div *ngFor="let character of characterDetailList">
           <app-character-detail [character]="character"></app-character-detail>
         </div>
       </ng-container>
     </div>
   </div>
 
-  <ng-template class="loading-template" #loading> Loading... </ng-template>
+  <ng-template #loading> Loading... </ng-template>
 </div>

@@ -1,4 +1,5 @@
 export class CommonHelper {
+  // TODO: Use generics
   public static filterObjectArray(
     targetArray: any[],
     filterParams: any

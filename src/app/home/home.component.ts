@@ -3,6 +3,7 @@ import {CharacterService} from '../services/character.service';
 import {Character} from '../character-detail/character';
 import {FilterComponent} from '../filter/filter.component';
 import {Subscription} from 'rxjs';
+import {ApplicationConstants} from '../utils/application-constants';
 
 @Component({
   selector: 'app-home',
@@ -48,7 +49,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.characterDetailList = characterList.slice(0, 3);
+    // TODO: Make this more user friendly
+    this.characterDetailList = characterList.slice(
+      0,
+      ApplicationConstants.NUMBER_OF_RECORDS_PER_PAGE
+    );
   }
 
   private async filterCharacters(filterParams: {}) {
