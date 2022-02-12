@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { ROLES } from './roles';
+import {Injectable} from '@angular/core';
+import {ROLES} from './roles';
 
 @Injectable({
   providedIn: 'root',

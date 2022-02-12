@@ -1,15 +1,17 @@
-<div>
+<div class="container">
   <div class="header">
-    {{ title }}
+    <h1>{{ title }}</h1>
   </div>
 
   <app-filter></app-filter>
 
   <div class="results">
-    <ng-container *ngIf="characterDetailList.length > 0">
+    <ng-container *ngIf="characterDetailList.length > 0; else loading">
       <div *ngFor="let character of characterDetailList">
         <app-character-detail [character]="character"></app-character-detail>
       </div>
     </ng-container>
   </div>
+
+  <ng-template class="loading-template" #loading> Loading... </ng-template>
 </div>

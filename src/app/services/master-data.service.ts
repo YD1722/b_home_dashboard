@@ -27,3 +27,8 @@ export class MasterDataService {
     cacheList.push(value);
   }
 }
+
+interface DropDownItem {
+  label: string;
+  value: string;
+}

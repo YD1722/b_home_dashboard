@@ -1,22 +1,24 @@
-<form [formGroup]="filterGroupForm">
-  <p-dropdown
-    [options]="namesList"
-    placeholder="Please select a name"
-    formControlName="name"
-  ></p-dropdown
-  ><p-dropdown
-    [options]="hairColorList"
-    placeholder="Please select a hair color"
-    formControlName="hair"
-  ></p-dropdown
-  ><p-dropdown
-    [options]="genderList"
-    placeholder="Please select character gender"
-    formControlName="gender"
-  ></p-dropdown
-  ><p-dropdown
-    [options]="raceList"
-    placeholder="Please select character race"
-    formControlName="race"
-  ></p-dropdown>
-</form>
+<div class="filter-container">
+  <form [formGroup]="filterGroupForm">
+    <p-dropdown
+      [options]="namesList"
+      placeholder="Please select a name"
+      formControlName="name"
+    ></p-dropdown
+    ><p-dropdown
+      [options]="hairColorList"
+      placeholder="Please select a hair color"
+      formControlName="hair"
+    ></p-dropdown
+    ><p-dropdown
+      [options]="genderList"
+      placeholder="Please select character gender"
+      formControlName="gender"
+    ></p-dropdown
+    ><p-dropdown
+      [options]="raceList"
+      placeholder="Please select character race"
+      formControlName="race"
+    ></p-dropdown>
+  </form>
+</div>

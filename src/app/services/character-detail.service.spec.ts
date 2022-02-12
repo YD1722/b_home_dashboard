@@ -13,29 +13,4 @@ describe('CharacterDetailService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should filter character array', () => {
-    const targetArr = [
-      {
-        name: 'YD',
-        hair: 'black',
-        gender: 'male',
-        race: 'asian'
-      },
-      {
-        name: 'DD',
-        hair: 'brown',
-        gender: 'female',
-      },
-      {
-        name: 'CD',
-        hair: 'brown',
-        gender: 'male',
-      },
-    ];
-
-    const filterParams = { name: '', hair: '', gender: '' };
-
-    expect(service.nestedFilter(targetArr, filterParams)).toBe(3);
-  });
 });

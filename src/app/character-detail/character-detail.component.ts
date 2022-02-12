@@ -6,10 +6,6 @@ import { Character } from './character';
   templateUrl: './character-detail.component.html',
   styleUrls: ['./character-detail.component.scss'],
 })
-export class CharacterDetailComponent implements OnInit {
+export class CharacterDetailComponent {
   @Input() character!: Character;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
