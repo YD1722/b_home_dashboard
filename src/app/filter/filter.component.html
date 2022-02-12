@@ -1,30 +1,22 @@
 <form [formGroup]="filterGroupForm">
   <p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
+    [options]="namesList"
     placeholder="Please select a name"
-    optionLabel="name"
     formControlName="name"
   ></p-dropdown
   ><p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
+    [options]="hairColorList"
     placeholder="Please select a hair color"
-    optionLabel="name"
     formControlName="hair"
   ></p-dropdown
   ><p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
+    [options]="genderList"
     placeholder="Please select character gender"
-    optionLabel="name"
     formControlName="gender"
   ></p-dropdown
   ><p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
+    [options]="raceList"
     placeholder="Please select character race"
-    optionLabel="name"
     formControlName="race"
   ></p-dropdown>
 </form>

@@ -6,7 +6,7 @@ export interface Character {
   spouse: string;
   death: string;
   realm: string;
-  hari: string;
+  hair: string;
   name: string;
   wikiUrl: string;
 }
